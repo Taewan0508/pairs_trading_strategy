@@ -36,8 +36,8 @@ Pairs trading assumes that two historically related stocks (KO & PEP) maintain a
   - z​=(spread​−μ​)/σ
 
 4. **Trading Rules**
-  - Short KO, Long PEP when zscore > +2
-  - Long KO, Shoer PEP when zscore < -2
+  - Long KO, Short PEP when zscore > +2
+  - Short KO, Long PEP when zscore < -2
   - Close positions when z-score goes back towards 0
 
 5. **Strategy Returns**
