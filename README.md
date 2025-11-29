@@ -1,2 +1,53 @@
-# pairs_trading_strategy
+# 📈 KO–PEP Pairs Trading Strategy (Mean Reversion)
 This project implements a classic statistical arbitrage pairs trading strategy using Coca-Cola (KO) and Pepsi (PEP).
+The strategy uses:
+
+- **Linear regression** to estimate the** hedge ratio (β)**
+- **Spread calculation** using the hedged prices
+- **Z-score normalization** to detect deviations
+- **Long/short trading signals** based on extreme spread movements
+- **Backtest performance** using cumulative strategy returns
+  
+## 🚀 Key Features
+
+- Downloads KO & PEP historical price data using yfinance
+- Computes the hedge ratio via OLS regression
+- Creates a mean-reverting spread
+- Converts spread into a normalized z-score
+- Generates trading signals when the spread diverges
+- Backtests the strategy with no look-ahead bias
+- Visualizes:
+  - Spread z-score and trading thresholds
+  - Cumulative strategy performance
+- Fully reproducible on Google Colab or Jupyter Notebook
+
+## 🧠 Concept Overview
+Pairs trading assumes that two historically related stocks (KO & PEP) maintain a stable long-term relationship.
+
+1. **Estimate Hedge Ratio**
+  - Regress PEP on KO:
+  - PEP = α+β * KO +ϵ
+
+2. **Compute Spread**
+  - _spread_= PEP - β *KO
+  - mean reverting
+
+3. **Z-score Standardization**
+  - z​=(spread​−μ​)/σ
+
+4. **Trading Rules**
+  - Short KO, Long PEP when zscore > +2
+  - Long KO, Shoer PEP when zscore < -2
+  - Close positions when z-score goes back towards 0
+
+5. **Strategy Returns**
+  - rstrategy​=(rKO​−β * rPEP​) * signalt−1​
+
+## 🧪 Technologies Used
+
+- Python
+- pandas
+- numpy
+- statsmodels
+- matplotlib
+- yfinance
