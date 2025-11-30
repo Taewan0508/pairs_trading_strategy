@@ -44,7 +44,7 @@ Pairs trading assumes that two historically related stocks (KO & PEP) maintain a
 5. **Strategy Returns**
   - rstrategy​=(rKO​−β * rPEP​) * signalt−1​
 
-### When KO is regress on KO
+### When KO is regress on PEP
 - vice versa
 
 
