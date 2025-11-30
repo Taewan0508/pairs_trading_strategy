@@ -1,5 +1,6 @@
-# 📈 KO–PEP Pairs Trading Strategy (Mean Reversion)
+# 📈 KO–PEP Pairs Trading Strategy (Mean Reversion) Regression Comparison
 This project implements a classic statistical arbitrage pairs trading strategy using Coca-Cola (KO) and Pepsi (PEP).
+I came across an interesting issue I faced while wokring on this project. I wanted to see whether if the results for pairs trading would differ if the independent and dependent variables altered. Ultimately, figuring out if beta (the hedge ratio) would differentiate by the change of variables. 
 The strategy uses:
 
 - **Linear regression** to estimate the** hedge ratio (β)**
@@ -23,7 +24,7 @@ The strategy uses:
 
 ## 🧠 Concept Overview
 Pairs trading assumes that two historically related stocks (KO & PEP) maintain a stable long-term relationship.
-
+### When PEP is regressed on KO
 1. **Estimate Hedge Ratio**
   - Regress PEP on KO:
   - PEP = α+β * KO +ϵ
@@ -43,6 +44,10 @@ Pairs trading assumes that two historically related stocks (KO & PEP) maintain a
 5. **Strategy Returns**
   - rstrategy​=(rKO​−β * rPEP​) * signalt−1​
 
+### When KO is regress on KO
+- vice versa
+
+
 ## 🧪 Technologies Used
 
 - Python
@@ -51,3 +56,16 @@ Pairs trading assumes that two historically related stocks (KO & PEP) maintain a
 - statsmodels
 - matplotlib
 - yfinance
+
+## Results 
+- The z-scores did not match
+- PEP's regrression on KO had a significant much higher z-score as well as strategy equity curve (as shown in chart under /results)
+    - The equity value varied from 1.14 to 0.5
+ 
+### Explanation
+- The betas are not reciprocals of each other
+- The betas differ because:
+  -  Regression minimizes squared errors **in the Y direction only**
+  -  Errors in X are ignored
+  -  Thus switching X and Y changes the entire minizing geometry
+- **_Regression is not symmetric_**
