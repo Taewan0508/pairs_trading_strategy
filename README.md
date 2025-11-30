@@ -61,6 +61,9 @@ Pairs trading assumes that two historically related stocks (KO & PEP) maintain a
 - The z-scores did not match
 - PEP's regrression on KO had a significant much higher z-score as well as strategy equity curve (as shown in chart under /results)
     - The equity value varied from 1.14 to 0.5
+- Then how do I determine which method is correct?
+    - Neither diretion is objectively correct but the method with more stable independent variable would be ideal
+    - Having KO as a independent variable since KO is more of a stable stock compared to PEP (more volatile)
  
 ### Explanation
 - The betas are not reciprocals of each other
